@@ -8,14 +8,6 @@ export const getDateTimeFormat = (date) => {
   }).format(dateObj);
 };
 
-// YYYY
-export const getYear = (date) => {
-  const dateObj = new Date(date);
-  return Intl.DateTimeFormat("en-US", {
-    year: "numeric",
-  }).format(dateObj);
-};
-
 // Reading time in minutes
 export const getReadingTime = (text) => {
   const wordsPerMinute = 200;

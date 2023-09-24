@@ -20,22 +20,22 @@ export const PROFILES = {
 export const PROJECTS = {
   mindwave: {
     title: "Mindwave",
-    description: "Simple Way to Focus, Meditate, and Relax.",
+    description: "Simple way to focus and relax.",
     url: "https://mindwave.netlify.app",
   },
   picrename: {
     title: "Picrename",
-    description: "App for renaming your images (urls) with ease.",
+    description: "Rename your images with ease.",
     url: "https://picrename.netlify.app",
   },
   piker: {
     title: "Piker",
-    description: "An open-source color picker app for macOS",
+    description: "An color picker app for macOS",
     url: "https://github.com/zhtkrky/piker",
   },
   dockIcons: {
     title: "Dock Icons",
-    description: "A collection of redesigned app icons",
+    description: "A collection of app icons",
     url: "https://github.com/zhtkrky/app-icons",
   },
 };

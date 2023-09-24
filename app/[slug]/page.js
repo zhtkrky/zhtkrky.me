@@ -1,5 +1,6 @@
 import Post from "@/components/Post";
 import Footer from "@/components/Footer";
+import Button from "@/components/ui/Button";
 import Link from "next/link";
 
 import { notFound } from "next/navigation";
@@ -7,6 +8,7 @@ import { Image, toNextMetadata } from "react-datocms";
 import { performRequest } from "@/lib/datocms";
 import { getReadingTime, getDateTimeFormat } from "@/lib/utils";
 import { responsiveImageFragment, metaTagsFragment } from "@/lib/fragments";
+import { backIcon } from "@/lib/icons";
 
 const BLOG_PAGE_QUERY = `
   query PageContent($slug: String) {
@@ -60,45 +62,38 @@ export default async function Page({ params }) {
 
   return (
     <>
-      <h1
-        className="
+      <div className="-mt-4">
+        <div className="mb-8 flex items-center justify-start">
+          <Button link="/"> {backIcon} Back to Home</Button>
+        </div>
+        <h1
+          className="
           text-4xl
           font-bold
           leading-tight
-          mb-4
+          my-4
           "
-      >
-        {blog.title}
-      </h1>
-      <div className="mb-4 flex justify-between">
-        <div
-          className="dark:text-neutral-400  
-          text-neutral-500 "
         >
-          <span>{getDateTimeFormat(blog._firstPublishedAt)}</span>
-          <span className="mx-2">•</span>
-          <span>{getReadingTime(blog.content)} min read</span>
+          {blog.title}
+        </h1>
+        <div className="mb-2">
+          <div className="dark:text-neutral-400 text-neutral-500">
+            <span>{getDateTimeFormat(blog._firstPublishedAt)}</span>
+            <span className="mx-2">•</span>
+            <span>{getReadingTime(blog.content)} min read</span>
+          </div>
         </div>
-        <Link
-          href="/"
-          className="border-b-[1px] dark:text-neutral-400 dark:border-neutral-500 dark:hover:border-neutral-300 dark:hover:text-neutral-300 
-          text-neutral-500 hover:border-neutral-600 hover:text-neutral-600
-          border-neutral-400 
-          transition-colors duration-200 ease-in-out"
-        >
-          Back
-        </Link>
+        {/* eslint-disable-next-line jsx-a11y/alt-text */}
+        <Image className="rounded-md" data={blog.featuredimage.responsiveImage} />
+        <Post>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: blog.content,
+            }}
+          />
+        </Post>
+        <Footer />
       </div>
-      {/* eslint-disable-next-line jsx-a11y/alt-text */}
-      <Image data={blog.featuredimage.responsiveImage} />
-      <Post>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: blog.content,
-          }}
-        />
-      </Post>
-      <Footer />
     </>
   );
 }

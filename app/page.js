@@ -2,10 +2,12 @@ import Header from "@/components/Header";
 import Projects from "@/components/Projects";
 import Writing from "@/components/Writing";
 import Footer from "@/components/Footer";
+import Button from "@/components/ui/Button";
 
 import { performRequest } from "@/lib/datocms";
 import { metaTagsFragment } from "@/lib/fragments";
 import { toNextMetadata } from "react-datocms";
+import { PROJECTS } from "@/lib/constants";
 
 const HOME_PAGE_QUERY = `
   query {
@@ -46,7 +48,7 @@ export default async function Home() {
     <main>
       <Header title={home.title} content={home.subtitle} />
       <Writing allBlogs={allBlogs} />
-      <Projects />
+      <Projects projects={PROJECTS} />
       <Footer />
     </main>
   );

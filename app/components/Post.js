@@ -8,6 +8,7 @@ function Post({ children }) {
             prose-md
             max-w-none
             mx-auto
+            prose-img:rounded-md
             dark:text-neutral-400
             dark:prose-headings:text-neutral-300
             dark:prose-blockquote:text-neutral-400

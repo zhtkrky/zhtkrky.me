@@ -1,29 +1,51 @@
+// TODO: Add icon for each project
 import React from "react";
-import { PROJECTS } from "@/lib/constants";
+import { externalIcon } from "@/lib/icons";
 
-function Projects() {
+function Projects({ projects }) {
   return (
     <div className="mb-16">
-      <span className="mb-5 block font-medium sm:mb-4">Projects</span>
-      <div className="group">
-        <div
-          className="flex flex-col md:gap-0 gap-4 dark:group-hover:text-neutral-600 dark:text-neutral-400
-        text-neutral-500 group-hover:text-neutral-400
-        "
-        >
-          {Object.values(PROJECTS).map((project) => (
-            <a
-              key={project.url}
-              href={project.url}
-              target="_blank"
-              className="-mx-3 flex flex-col md:flex-row items-start md:items-center justify-between rounded-md px-3 no-underline dark:hover:bg-neutral-900 dark:hover:text-neutral-300 
-              hover:bg-neutral-100 hover:text-neutral-900 sm:py-3"
+      <h2 className="mb-5 block font-medium sm:mb-4">Projects</h2>
+      <div
+        className="flex flex-col sm:flex-row flex-wrap -mx-4
+        mb-4 
+        text-sm dark:text-neutral-400
+        text-neutral-500"
+      >
+        {Object.values(projects).map((project) => (
+          <a
+            key={project.url}
+            href={project.url}
+            className="flex justify-start w-full sm:w-1/2 gap-3 items-center dark:hover:bg-neutral-900   
+          hover:bg-neutral-100 p-4 rounded-md no-underline"
+          >
+            <div
+              className="w-12 h-12 rounded-md shadow-inner bg-neutral-200/40 dark:bg-neutral-700/40
+          flex justify-center items-center "
             >
-              <span>{project.title}</span>
-              <span className="text-xs">{project.description}</span>
-            </a>
-          ))}
-        </div>
+              <span
+                className="text-xl font-bold 
+                text-neutral-400 dark:text-neutral-500
+              "
+              >
+                {project.title[0]}
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <div className="flex items-center">
+                <h3
+                  className="font-medium
+              text-neutral-900 dark:text-neutral-200 pr-1
+              "
+                >
+                  {project.title}
+                </h3>
+                <div className="w-4 h-4">{externalIcon}</div>
+              </div>
+              <span>{project.description}</span>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   );
