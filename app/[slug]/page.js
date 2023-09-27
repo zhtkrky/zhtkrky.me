@@ -1,7 +1,8 @@
 import Post from "@/components/Post";
 import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
-import Link from "next/link";
+import ZoomIn from "@/components/animations/ZoomIn";
+import FadeUp from "@/components/animations/FadeUp";
 
 import { notFound } from "next/navigation";
 import { Image, toNextMetadata } from "react-datocms";
@@ -66,32 +67,37 @@ export default async function Page({ params }) {
         <div className="mb-8 flex items-center justify-start">
           <Button link="/"> {backIcon} Back to Home</Button>
         </div>
-        <h1
-          className="
+
+        <FadeUp>
+          <h1
+            className="
           text-4xl
           font-bold
           leading-tight
           my-4
           "
-        >
-          {blog.title}
-        </h1>
-        <div className="mb-2">
-          <div className="dark:text-neutral-400 text-neutral-500">
-            <span>{getDateTimeFormat(blog._firstPublishedAt)}</span>
-            <span className="mx-2">•</span>
-            <span>{getReadingTime(blog.content)} min read</span>
+          >
+            {blog.title}
+          </h1>
+          <div className="mb-2">
+            <div className="dark:text-neutral-400 text-neutral-500">
+              <span>{getDateTimeFormat(blog._firstPublishedAt)}</span>
+              <span className="mx-2">•</span>
+              <span>{getReadingTime(blog.content)} min read</span>
+            </div>
           </div>
-        </div>
-        {/* eslint-disable-next-line jsx-a11y/alt-text */}
-        <Image className="rounded-md" data={blog.featuredimage.responsiveImage} />
-        <Post>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: blog.content,
-            }}
-          />
-        </Post>
+          <ZoomIn>
+            {/* eslint-disable-next-line jsx-a11y/alt-text */}
+            <Image className="rounded-md" data={blog.featuredimage.responsiveImage} />
+          </ZoomIn>
+          <Post>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: blog.content,
+              }}
+            />
+          </Post>
+        </FadeUp>
         <Footer />
       </div>
     </>

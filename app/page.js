@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Projects from "@/components/Projects";
 import Writing from "@/components/Writing";
 import Footer from "@/components/Footer";
-import Button from "@/components/ui/Button";
+import FadeUp from "./components/animations/FadeUp";
 
 import { performRequest } from "@/lib/datocms";
 import { metaTagsFragment } from "@/lib/fragments";
@@ -46,10 +46,12 @@ export default async function Home() {
 
   return (
     <main>
-      <Header title={home.title} content={home.subtitle} />
-      <Writing allBlogs={allBlogs} />
-      <Projects projects={PROJECTS} />
-      <Footer />
+      <FadeUp>
+        <Header title={home.title} content={home.subtitle} />
+        <Projects projects={PROJECTS} />
+        <Writing allBlogs={allBlogs} />
+        <Footer />
+      </FadeUp>
     </main>
   );
 }

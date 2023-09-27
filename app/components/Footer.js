@@ -3,15 +3,15 @@ import { PROFILES } from "@/lib/constants";
 
 function Footer() {
   return (
-    <div className="mb-4 flex items-center justify-center text-sm">
-      <div className="flex gap-4">
+    <footer className="border-t border-neutral-200 dark:border-neutral-800 dark:text-neutral-400 py-4">
+      <div className="flex items-center justify-center gap-4">
         {Object.values(PROFILES).map((profile, index) => (
           <a
             key={profile.url}
             href={profile.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="dark:text-neutral-600 dark:hover:text-neutral-300
+            className="text-sm dark:text-neutral-600 dark:hover:text-neutral-300
             text-neutral-400 hover:text-neutral-600
             "
           >
@@ -19,7 +19,7 @@ function Footer() {
           </a>
         ))}
       </div>
-    </div>
+    </footer>
   );
 }
 

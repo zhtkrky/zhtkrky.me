@@ -4,7 +4,7 @@ import { externalIcon } from "@/lib/icons";
 
 function Projects({ projects }) {
   return (
-    <div className="mb-16">
+    <section className="mb-16">
       <h2 className="mb-5 block font-medium sm:mb-4">Projects</h2>
       <div
         className="flex flex-col sm:flex-row flex-wrap -mx-4
@@ -16,6 +16,7 @@ function Projects({ projects }) {
           <a
             key={project.url}
             href={project.url}
+            target="_blank"
             className="flex justify-start w-full sm:w-1/2 gap-3 items-center dark:hover:bg-neutral-900   
           hover:bg-neutral-100 p-4 rounded-md no-underline"
           >
@@ -47,7 +48,7 @@ function Projects({ projects }) {
           </a>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
