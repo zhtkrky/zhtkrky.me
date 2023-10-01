@@ -1,5 +1,4 @@
 import Post from "@/components/Post";
-import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
 import ZoomIn from "@/components/animations/ZoomIn";
 import FadeUp from "@/components/animations/FadeUp";
@@ -63,7 +62,7 @@ export default async function Page({ params }) {
 
   return (
     <>
-      <div className="-mt-4">
+      <div className="mb-16">
         <div className="mb-8 flex items-center justify-start">
           <Button link="/"> {backIcon} Back to Home</Button>
         </div>
@@ -98,7 +97,6 @@ export default async function Page({ params }) {
             />
           </Post>
         </FadeUp>
-        <Footer />
       </div>
     </>
   );

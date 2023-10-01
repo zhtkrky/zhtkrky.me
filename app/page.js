@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Projects from "@/components/Projects";
 import Writing from "@/components/Writing";
-import Footer from "@/components/Footer";
 import FadeUp from "./components/animations/FadeUp";
 
 import { performRequest } from "@/lib/datocms";
@@ -50,7 +49,6 @@ export default async function Home() {
         <Header title={home.title} content={home.subtitle} />
         <Projects projects={PROJECTS} />
         <Writing allBlogs={allBlogs} />
-        <Footer />
       </FadeUp>
     </main>
   );
