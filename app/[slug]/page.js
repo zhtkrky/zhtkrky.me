@@ -51,14 +51,16 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function Page({ params }) {
-  const { blog, site } = await performRequest({
+  const {
+    blog: { title, _firstPublishedAt, content, featuredimage },
+  } = await performRequest({
     query: BLOG_PAGE_QUERY,
     variables: {
       slug: params.slug,
     },
   });
 
-  if (!blog) return notFound();
+  if (!content) return notFound();
 
   return (
     <>
@@ -68,31 +70,22 @@ export default async function Page({ params }) {
         </div>
 
         <FadeUp>
-          <h1
-            className="
-          text-4xl
-          font-bold
-          leading-tight
-          my-4
-          "
-          >
-            {blog.title}
-          </h1>
+          <h1 className="mb-4 text-2xl font-bold tracking-tight sm:text-3xl">{title}</h1>
           <div className="mb-2">
             <div className="dark:text-neutral-400 text-neutral-500">
-              <span>{getDateTimeFormat(blog._firstPublishedAt)}</span>
+              <span>{getDateTimeFormat(_firstPublishedAt)}</span>
               <span className="mx-2">•</span>
-              <span>{getReadingTime(blog.content)} min read</span>
+              <span>{getReadingTime(content)} min read</span>
             </div>
           </div>
           <ZoomIn>
             {/* eslint-disable-next-line jsx-a11y/alt-text */}
-            <Image className="rounded-md" data={blog.featuredimage.responsiveImage} />
+            <Image className="rounded-md" data={featuredimage.responsiveImage} />
           </ZoomIn>
           <Post>
             <div
               dangerouslySetInnerHTML={{
-                __html: blog.content,
+                __html: content,
               }}
             />
           </Post>

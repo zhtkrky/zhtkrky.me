@@ -2,12 +2,12 @@ import React from "react";
 import { getDateTimeFormat } from "@/lib/utils";
 import Link from "next/link";
 
-function Blog({ allBlogs }) {
+function Blog({ blogs }) {
   return (
     <section className="mb-16">
       <h2 className="mb-5 block font-medium sm:mb-4">Writing</h2>
       <div className="mb-4 flex flex-col justify-between">
-        {allBlogs?.map((blog) => (
+        {blogs?.map((blog) => (
           <Link
             href={`/${blog.slug}`}
             key={blog.id}

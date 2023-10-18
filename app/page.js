@@ -6,7 +6,6 @@ import FadeUp from "./components/animations/FadeUp";
 import { performRequest } from "@/lib/datocms";
 import { metaTagsFragment } from "@/lib/fragments";
 import { toNextMetadata } from "react-datocms";
-import { PROJECTS } from "@/lib/constants";
 
 const HOME_PAGE_QUERY = `
   query {
@@ -21,6 +20,12 @@ const HOME_PAGE_QUERY = `
       }
       title
       subtitle
+      projects {
+        id
+        title
+        description
+        link
+      }
     }
     allBlogs(orderBy: _createdAt_DESC) {
       id
@@ -41,14 +46,17 @@ export async function generateMetadata() {
 }
 
 export default async function Home() {
-  const { allBlogs, home } = await performRequest({ query: HOME_PAGE_QUERY });
+  const {
+    allBlogs: blogs,
+    home: { title, subtitle, projects },
+  } = await performRequest({ query: HOME_PAGE_QUERY });
 
   return (
     <main>
+      <Header title={title} content={subtitle} />
       <FadeUp>
-        <Header title={home.title} content={home.subtitle} />
-        <Projects projects={PROJECTS} />
-        <Writing allBlogs={allBlogs} />
+        <Writing blogs={blogs} />
+        <Projects projects={projects} />
       </FadeUp>
     </main>
   );

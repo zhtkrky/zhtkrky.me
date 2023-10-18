@@ -14,8 +14,8 @@ function Projects({ projects }) {
       >
         {Object.values(projects).map((project) => (
           <a
-            key={project.url}
-            href={project.url}
+            key={project.link}
+            href={project.link}
             target="_blank"
             className="flex justify-start w-full sm:w-1/2 gap-3 items-center dark:hover:bg-neutral-900   
           hover:bg-neutral-100 p-4 rounded-md no-underline"
