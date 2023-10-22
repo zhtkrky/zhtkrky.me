@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 
 import Footer from "@/components/Footer";
 
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
         {children}
         <Footer />
       </body>
+      <Script beforeInteractive src="https://zhtkrky-web-components.netlify.app/assets/index.js" />
     </html>
   );
 }

@@ -1,14 +1,13 @@
 import Post from "@/components/Post";
-import Button from "@/components/ui/Button";
 import ZoomIn from "@/components/animations/ZoomIn";
 import FadeUp from "@/components/animations/FadeUp";
+import Link from "next/link";
 
 import { notFound } from "next/navigation";
 import { Image, toNextMetadata } from "react-datocms";
 import { performRequest } from "@/lib/datocms";
 import { getReadingTime, getDateTimeFormat } from "@/lib/utils";
 import { responsiveImageFragment, metaTagsFragment } from "@/lib/fragments";
-import { backIcon } from "@/lib/icons";
 
 const BLOG_PAGE_QUERY = `
   query PageContent($slug: String) {
@@ -66,7 +65,9 @@ export default async function Page({ params }) {
     <>
       <div className="mb-16">
         <div className="mb-8 flex items-center justify-start">
-          <Button link="/"> {backIcon} Back to Home</Button>
+          <Link href="/">
+            <button-component name="Back to Home"></button-component>
+          </Link>
         </div>
 
         <FadeUp>

@@ -1,9 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Button from "@/components/ui/Button";
-
-import { backIcon } from "@/lib/icons";
 
 export default function NotFound() {
   return (
@@ -11,7 +8,9 @@ export default function NotFound() {
       <h2 className="text-xl">Not Found</h2>
       <p className="py-4">This link might be broken, deleted, or moved. Nevertheless, there’s nothing to see here..</p>
       <div className="flex items-center justify-start">
-        <Button link="/"> {backIcon} Back to Home</Button>
+        <Link href="/">
+          <button-component name="Back to Home"></button-component>
+        </Link>
       </div>
     </div>
   );
