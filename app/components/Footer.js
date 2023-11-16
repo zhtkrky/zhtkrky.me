@@ -12,8 +12,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm dark:text-neutral-600 dark:hover:text-neutral-300
-            text-neutral-400 hover:text-neutral-600
-            "
+            text-neutral-400 hover:text-neutral-600"
           >
             {profile.title}
           </a>
