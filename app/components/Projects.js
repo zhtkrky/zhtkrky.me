@@ -1,6 +1,9 @@
 // TODO: Add icon for each project
+"use client";
+
 import React from "react";
 import { externalIcon } from "@/lib/icons";
+import { motion } from "framer-motion";
 
 function Projects({ projects }) {
   return (
@@ -11,7 +14,8 @@ function Projects({ projects }) {
         mb-4 text-sm dark:text-neutral-400 text-neutral-500"
       >
         {Object.values(projects).map((project) => (
-          <a
+          <motion.a
+            whileHover="hover"
             key={project.link}
             href={project.link}
             target="_blank"
@@ -23,11 +27,21 @@ function Projects({ projects }) {
             <div className="flex flex-col">
               <div className="flex items-center">
                 <h3 className="font-medium text-neutral-900 dark:text-neutral-200 pr-1">{project.title}</h3>
-                <div className="w-4 h-4">{externalIcon}</div>
+                <motion.div
+                  variants={{
+                    hover: {
+                      rotate: 45,
+                      scale: 1.1,
+                    },
+                  }}
+                  className="w-4 h-4"
+                >
+                  {externalIcon}
+                </motion.div>
               </div>
               <span>{project.description}</span>
             </div>
-          </a>
+          </motion.a>
         ))}
       </div>
     </section>

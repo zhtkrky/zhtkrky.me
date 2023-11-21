@@ -1,5 +1,3 @@
-import React from "react";
-
 function Post({ children }) {
   return (
     <div
@@ -28,4 +26,4 @@ function Post({ children }) {
   );
 }
 
-export default React.memo(Post);
+export default Post;
