@@ -16,3 +16,8 @@ export const PROFILES = {
     url: "https://instagram.com/zhtkrky",
   },
 };
+
+export const isMobile = () => {
+  if (typeof window === "undefined") return false;
+  return window.innerWidth < 768;
+};

@@ -34,7 +34,7 @@ function Projects({ projects }) {
                       scale: 1.1,
                     },
                   }}
-                  className="w-4 h-4"
+                  className="w-4 h-4 hidden md:block"
                 >
                   {externalIcon}
                 </motion.div>

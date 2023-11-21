@@ -58,6 +58,7 @@ export default async function Page({ params }) {
     variables: {
       slug: params.slug,
     },
+    revalidate: 1,
   });
 
   if (!content) return notFound();
