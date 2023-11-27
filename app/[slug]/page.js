@@ -1,5 +1,5 @@
 import Post from "@/components/Post";
-import Button from "@/components/ui/Button";
+import Button from "@/components/animations/AnimatedButton";
 import ZoomIn from "@/components/animations/ZoomIn";
 import FadeUp from "@/components/animations/FadeUp";
 
@@ -8,7 +8,6 @@ import { Image, toNextMetadata } from "react-datocms";
 import { performRequest } from "@/lib/datocms";
 import { getReadingTime, getDateTimeFormat } from "@/lib/utils";
 import { responsiveImageFragment, metaTagsFragment } from "@/lib/fragments";
-import { backIcon } from "@/lib/icons";
 
 const BLOG_PAGE_QUERY = `
   query PageContent($slug: String) {
@@ -58,7 +57,6 @@ export default async function Page({ params }) {
     variables: {
       slug: params.slug,
     },
-    // revalidate: 1,
   });
 
   if (!content) return notFound();
@@ -66,10 +64,6 @@ export default async function Page({ params }) {
   return (
     <>
       <div className="mb-16">
-        <div className="mb-8 flex items-center justify-start">
-          <Button link="/"> {backIcon} Back to Home</Button>
-        </div>
-
         <FadeUp>
           <h1 className="mb-4 text-2xl font-bold tracking-tight sm:text-3xl">{title}</h1>
           <div className="mb-2">
@@ -81,7 +75,7 @@ export default async function Page({ params }) {
           </div>
           <ZoomIn>
             {/* eslint-disable-next-line jsx-a11y/alt-text */}
-            <Image className="rounded-md" data={featuredimage.responsiveImage} />
+            <Image className="rounded-none md:rounded-md" data={featuredimage.responsiveImage} />
           </ZoomIn>
           <Post>
             <div
@@ -91,6 +85,7 @@ export default async function Page({ params }) {
             />
           </Post>
         </FadeUp>
+        <Button content="Back to Home" link="/" />
       </div>
     </>
   );

@@ -19,3 +19,15 @@ export const backIcon = (
     />
   </svg>
 );
+
+export const chevronRightIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+    <path
+      d="M23.5587,16.916c.586,.584,.588,1.53,.006,2.118l-6.957,7.022c-.293,.296-.679,.444-1.065,.444-.382,0-.764-.145-1.056-.435-.589-.583-.592-1.532-.009-2.121l5.9041-5.96-5.941-5.922c-.586-.584-.588-1.5341-.003-2.121,.584-.587,1.536-.588,2.121-.003l7,6.978Z"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    ></path>
+  </svg>
+);
