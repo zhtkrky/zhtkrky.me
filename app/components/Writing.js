@@ -7,7 +7,7 @@ function Blog({ blogs }) {
   return (
     <section className="mb-16">
       <h2 className="mb-5 block font-medium sm:mb-4">Writing</h2>
-      <div className="mb-4 flex flex-col justify-between">
+      <div className="mb-4 flex flex-col justify-between gap-3">
         {blogs?.map((blog) => (
           <Link
             href={`/${blog.slug}`}

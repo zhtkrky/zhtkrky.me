@@ -7,7 +7,7 @@ function Post({ children }) {
             max-w-none
             mx-auto
             prose-img:rounded-md
-            dark:text-neutral-400
+            dark:text-neutral-300
             dark:prose-headings:text-neutral-300
             dark:prose-blockquote:text-neutral-400
             dark:prose-strong:text-neutral-300
@@ -19,6 +19,7 @@ function Post({ children }) {
             prose-strong:text-neutral-700
             prose-a:text-neutral-700
             prose-code:text-neutral-400
+            pb-2
             "
     >
       {children}
