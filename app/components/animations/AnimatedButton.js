@@ -14,7 +14,7 @@ function AnimatedButton({ content, link }) {
           transition: { staggerChildren: 0.5 },
         }}
         transition={{ duration: 0.3 }}
-        className="fixed font-medium bottom-6 left-1/2 transform -translate-x-1/2 h-12 rounded-full dark:bg-[#2e2e30]/80 bg-[#efeff2]/80 backdrop-blur-sm flex items-center justify-center group cursor-pointer"
+        className="fixed font-medium bottom-6 left-1/2 transform -translate-x-1/2 h-12 rounded-full dark:bg-[#2e2e30]/80 bg-[#efeff2]/80 backdrop-blur-sm flex items-center justify-center cursor-pointer"
       >
         <motion.span
           initial={{ opacity: 0, display: "none" }}
@@ -31,7 +31,7 @@ function AnimatedButton({ content, link }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className="absolute right-0 mr-2 h-8 w-8 rounded-full bg-[#0071c5] flex items-center justify-center group-hover:text-neutral-300 group-hover:dark:text-white"
+          className="absolute right-0 mr-2 h-8 w-8 rounded-full bg-[#0071c5] flex items-center justify-center text-neutral-300"
         >
           {chevronRightIcon}
         </motion.span>
