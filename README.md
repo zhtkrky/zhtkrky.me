@@ -7,7 +7,7 @@ This repository contains the source code for my personal website. It is built us
 To get started with the project, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/zhtkrky/zhtkrky.me.git`
-2. Navigate to the project directory: `cd your-repo`
+2. Navigate to the project directory: `cd zhtkrky.me`
 3. Install dependencies: `npm install` or `yarn install`
 4. Run the development server: `npm run dev` or `yarn dev`
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
