@@ -1,4 +1,3 @@
-// TODO: Add icon for each project
 "use client";
 
 import React from "react";

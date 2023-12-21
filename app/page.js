@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
-import Projects from "@/components/Projects";
 import Writing from "@/components/Writing";
+import Footer from "./components/Footer";
 
 import { performRequest } from "@/lib/datocms";
 import { metaTagsFragment } from "@/lib/fragments";
@@ -19,12 +19,6 @@ const HOME_PAGE_QUERY = `
       }
       title
       subtitle
-      projects {
-        id
-        title
-        description
-        link
-      }
     }
     allBlogs(orderBy: _createdAt_DESC) {
       id
@@ -47,14 +41,14 @@ export async function generateMetadata() {
 export default async function Home() {
   const {
     allBlogs: blogs,
-    home: { title, subtitle, projects },
+    home: { title, subtitle },
   } = await performRequest({ query: HOME_PAGE_QUERY });
 
   return (
     <main>
       <Header title={title} content={subtitle} />
       <Writing blogs={blogs} />
-      <Projects projects={projects} />
+      <Footer />
     </main>
   );
 }
