@@ -1,5 +1,5 @@
 import Post from "@/components/Post";
-import Button from "@/components/animations/AnimatedButton";
+import { AnimatedLinkButton } from "@/components/ui/Button";
 import ZoomIn from "@/components/animations/ZoomIn";
 import FadeUp from "@/components/animations/FadeUp";
 
@@ -85,7 +85,7 @@ export default async function Page({ params }) {
             />
           </Post>
         </FadeUp>
-        <Button content="Back to Home" link="/" />
+        <AnimatedLinkButton content="Back to Home" link="/" />
       </div>
     </>
   );

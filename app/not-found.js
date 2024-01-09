@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Button from "./components/ui/Button";
+import { LinkButton } from "./components/ui/Button";
 
 function NotFound() {
   return (
@@ -8,7 +8,7 @@ function NotFound() {
       <p className="py-4">This link might be broken, deleted, or moved. Nevertheless, there’s nothing to see here..</p>
       <div className="flex items-center justify-start">
         <Link href="/">
-          <Button link="/">Back to Home</Button>
+          <LinkButton link="/">Back to Home</LinkButton>
         </Link>
       </div>
     </div>
