@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Writing from "@/components/Writing";
 import Footer from "./components/Footer";
+// import Projects from "./components/Projects";
 
 import { performRequest } from "@/lib/datocms";
 import { metaTagsFragment } from "@/lib/fragments";
@@ -42,12 +43,13 @@ export default async function Home() {
   const {
     allBlogs: blogs,
     home: { title, subtitle },
-  } = await performRequest({ query: HOME_PAGE_QUERY });
+  } = await performRequest({ query: HOME_PAGE_QUERY, revalidate: 3600 });
 
   return (
     <main>
       <Header title={title} content={subtitle} />
       <Writing blogs={blogs} />
+      {/* <Projects projects={projects} /> */}
       <Footer />
     </main>
   );

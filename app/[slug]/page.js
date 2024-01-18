@@ -57,6 +57,7 @@ export default async function Page({ params }) {
     variables: {
       slug: params.slug,
     },
+    revalidate: 3600,
   });
 
   if (!content) return notFound();
